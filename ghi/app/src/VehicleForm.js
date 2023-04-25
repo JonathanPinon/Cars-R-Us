@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 const VehicleForm = (props) => {
+//# create async function
 
 //#region : useStates
 const [name, setName] = useState('')
@@ -9,6 +10,7 @@ const [manufacturer, setManufacturer] = useState('')
 //#endregion
 
 //#region : handler functions
+//#three pre req to create a manufactuar
 const handleName = (event) => {
   const value = event.target.value
   setName(value)
@@ -37,7 +39,7 @@ const handleSubmit = async (event) => {
   const fetchConfig = {
     method: 'post',
     body: JSON.stringify(data),
-    header: {
+    headers: {
       "Content-Type": "application/json",
     },
   }
