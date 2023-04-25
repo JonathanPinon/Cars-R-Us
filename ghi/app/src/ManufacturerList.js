@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react';
 
 function ManufacturerList() {
-    const [manufacturerList, setManufacturerList] = useState([])
+    const [manufacturerList, setManufacturerList] = useState([]);
     async function loadManufacturers(){
         const response = await fetch('http://localhost:8100/api/manufacturers/');
         if(response.ok){
