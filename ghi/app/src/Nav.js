@@ -1,19 +1,32 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 function Nav() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-success">
       <div className="container-fluid">
-        <NavLink className="navbar-brand" to="/">CarCar</NavLink>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
+        <Link className="navbar-brand" to="/">CarCar</Link>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+        <div className="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul className="navbar-nav">
+        <li className="nav-item dropdown">
+          <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Inventory
+          </Link>
+          <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <li><Link className="dropdown-item" to="manufacturer">Manufacturer List</Link></li>
+            <li><Link className="dropdown-item" to="manufacturer/new">Manufacturer Form</Link></li>
+            <li><Link className="dropdown-item" to="vehicle">Vehicle List</Link></li>
+            <li><Link className="dropdown-item" to="vehicle/new">Vehicle Form</Link></li>
+            <li><Link className="dropdown-item" to="automobile">Automobile List</Link></li>
+            <li><Link className="dropdown-item" to="automobile/new">Automobile Form</Link></li>
           </ul>
-        </div>
-      </div>
-    </nav>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
   )
 }
 
