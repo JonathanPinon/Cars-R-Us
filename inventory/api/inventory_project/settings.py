@@ -26,11 +26,11 @@ SECRET_KEY = 'django-insecure-h_*^s%*58o(szd%qaz!(^ky%nah+=yw+d=mkp_)01(r1@*$2t%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-
 # Application definition
 
 INSTALLED_APPS = [
     "inventory_rest.apps.InventoryRestConfig",
+    "corsheaders",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

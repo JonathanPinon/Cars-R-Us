@@ -1,7 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 const VehicleForm = (props) => {
-//# create async function
+  const [manufacturers, setManufacturers] = useState([])
+  async function loadManufacturers() {
+    const response = await fetch("http://localhost:8100/api/manufacturers/");
+    if(response.ok){
+      const data = await response.json()
+      setManufacturers(data.manufacturers)
+    } else {
+      console.error(response)
+    }
+  }
+  useEffect(() => {
+    loadManufacturers()
+  }, [])
 
 //#region : useStates
 const [name, setName] = useState('')
@@ -31,11 +43,11 @@ const handleSubmit = async (event) => {
   event.preventDefault();
   const data = {
     name: name,
-    picture_url : pictureUrl,
+    picture_url: pictureUrl,
     manufacturer_id: manufacturer
   }
 
-  const url = 'http://localhost:8100/api/models/'
+  const url = "http://localhost:8100/api/models/"
   const fetchConfig = {
     method: 'post',
     body: JSON.stringify(data),
@@ -49,6 +61,8 @@ const handleSubmit = async (event) => {
     setName('')
     setPictureUrl('')
     setManufacturer('')
+  } else {
+    console.log(response)
   }
 
 }
@@ -97,9 +111,9 @@ const handleSubmit = async (event) => {
               onChange={handleManufacturer}
               >
               <option value="">Choose a manufacturer</option>
-              {props.manufacturer_list.map((manuf)=>{
+              {manufacturers.map((manuf)=>{
                 return (
-                  <option key={manuf.href} value={manuf.id}>{manuf.name}</option>
+                  <option key={manuf.id} value={manuf.id}>{manuf.name}</option>
                 )
               })}
             </select>
