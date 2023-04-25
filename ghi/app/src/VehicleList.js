@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 const VehicleList = (props) => {
-  // need props for models
-  // fix spacing in the future
+  const [vehicleList, setVehicleList] = useState([])
+  async function loadVehicles(){
+      const response = await fetch('http://localhost:8100/api/models/');
+      if(response.ok){
+          const data = await response.json();
+          setVehicleList(data.models)
+      } else {
+          console.error(response)
+      }
+  }
+  useEffect(() => {
+      loadVehicles()
+  }, []);
   return (
     <div className="row">
       <h1 className="mt-3 mb-3 p-0">Vehicle models</h1>
@@ -15,7 +26,7 @@ const VehicleList = (props) => {
           </tr>
         </thead>
         <tbody>
-            {props.vehicle_list.map((vehicle)=>{
+            {vehicleList.map((vehicle)=>{
               return (
                 <tr key={vehicle.href}>
                   <td>{vehicle.name}</td>
@@ -31,3 +42,5 @@ const VehicleList = (props) => {
 }
 
 export default VehicleList
+
+t
