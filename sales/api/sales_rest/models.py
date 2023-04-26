@@ -4,10 +4,10 @@ from django.urls import reverse
 class Salesperson(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    employee_id = models.CharField(max_length=50)
+    employee_id = models.CharField(max_length=50, unique=True)
 
     def get_api_url(self):
-        return reverse("salesperson", kwargs={"pk": self.id})
+        return reverse("salesperson_list", kwargs={"id": self.id})
 
 class Customer(models.Model):
     first_name = models.CharField(max_length=100)
@@ -16,13 +16,11 @@ class Customer(models.Model):
     phone_number = models.CharField(max_length=12)
 
     def get_api_url(self):
-        return reverse("customer", kwargs={"pk": self.id})
+        return reverse("customer_list", kwargs={"id": self.id})
 
 class AutomobileVO(models.Model):
     vin = models.CharField(max_length=17, unique=True)
 
-    def get_api_url(self):
-        return reverse("automobilevo", kwargs={"pk": self.id})
 
 class Sale(models.Model):
     price = models.IntegerField(null=True)
@@ -42,4 +40,4 @@ class Sale(models.Model):
         on_delete=models.CASCADE
     )
     def get_api_url(self):
-        return reverse("sale", kwargs={"pk": self.id})
+        return reverse("sale_list", kwargs={"id": self.id})

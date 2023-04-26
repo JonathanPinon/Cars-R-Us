@@ -86,7 +86,7 @@ function AutomobileForm(){
                     </div>
                     <div className="col-md-4">
                         <select onChange={handleModelChange} required id="location" value={model} name="location" className="form-select">
-                        <option value=''>Choose Closet</option>
+                        <option value=''>Choose Model</option>
                         {models.map(model => {
                             return (
                                 <option key={model.id} value={model.id}>

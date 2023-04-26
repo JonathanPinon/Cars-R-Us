@@ -23,6 +23,19 @@ function Nav() {
             <li><Link className="dropdown-item" to="automobile/new">Automobile Form</Link></li>
           </ul>
         </li>
+        <li className="nav-item dropdown">
+          <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Sales
+          </Link>
+          <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <li><Link className="dropdown-item" to="salespeople">Salespeople List</Link></li>
+            <li><Link className="dropdown-item" to="salespeople/new">Add Salesperson</Link></li>
+            <li><Link className="dropdown-item" to="customers">Customer List</Link></li>
+            <li><Link className="dropdown-item" to="customers/new">Add Customer</Link></li>
+            <li><Link className="dropdown-item" to="sales">Sales List</Link></li>
+            <li><Link className="dropdown-item" to="sales/new">Add Sale</Link></li>
+          </ul>
+        </li>
       </ul>
     </div>
   </div>
