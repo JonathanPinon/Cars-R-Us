@@ -34,6 +34,7 @@ function Nav() {
             <li><Link className="dropdown-item" to="customers/new">Add Customer</Link></li>
             <li><Link className="dropdown-item" to="sales">Sales List</Link></li>
             <li><Link className="dropdown-item" to="sales/new">Add Sale</Link></li>
+            <li><Link className="dropdown-item" to="sales/history">Salesperson History</Link></li>
           </ul>
         </li>
       </ul>

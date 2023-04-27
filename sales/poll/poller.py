@@ -15,11 +15,9 @@ def get_vins():
     content = json.loads(response.content)
     for automobile in content["autos"]:
         AutomobileVO.objects.update_or_create(
-            defaults = {
-            "vin": automobile["vin"]
-            }
+            vin=automobile["vin"]
         )
-        
+
 # from sales_rest.models import Something
 
 def poll():

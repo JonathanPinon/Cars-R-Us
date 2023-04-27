@@ -29,6 +29,7 @@ class AutomobileVOEncoder(ModelEncoder):
     model = AutomobileVO
     properties = [
         "vin",
+        "sold",
     ]
 
 class SaleListEncoder(ModelEncoder):
@@ -38,19 +39,18 @@ class SaleListEncoder(ModelEncoder):
         "customer",
         "salesperson",
         "automobile",
+        "id",
     ]
 
-    # encoders = {
-    #     "customer": CustomerListEncoder(),
-    #     "salesperson": SalespersonListEncoder(),
-    #     "automobile": AutomobileVOEncoder(),
-    # }
-    def get_extra_data(self, o):
-        return {
-            "customer": o.customer.id,
-            "salesperson": o.salesperson.employee_id,
-            "automobile": o.automobile.vin
-                }
+    encoders = {
+        "customer": CustomerListEncoder(),
+        "salesperson": SalespersonListEncoder(),
+        "automobile": AutomobileVOEncoder(),
+    }
+    # def get_extra_data(self, o):
+    #     return {
+    #         "automobile": o.automobile.vin
+    #             }
 
 @require_http_methods(["POST", "GET"])
 def salesperson_list(request):
@@ -108,34 +108,35 @@ def sale_list(request):
         )
     else:
         content = json.loads(request.body)
-        print(content)
         try:
+            automobile_vin = content["automobile"]
+            automobile = AutomobileVO.objects.get(vin=automobile_vin)
+            content["automobile"] = automobile
+
             salesperson_id = content["salesperson"]
-            print(salesperson_id)
             salesperson = Salesperson.objects.get(employee_id=salesperson_id)
             content["salesperson"] = salesperson
 
             customer_id = content["customer"]
-            print(customer_id)
             customer = Customer.objects.get(id=customer_id)
             content["customer"] = customer
-            
-            automobile_vin = content["automobile"]
-            print(automobile_vin)
-            automobile = AutomobileVO.objects.get(vin=automobile_vin)
-            content["automobile"] = automobile
 
-            sale = Sale.objects.create(**content)
-            return JsonResponse(
-                sale,
-                encoder=SaleListEncoder,
-                safe=False,
-            )
+            automobile.sold = True
+            automobile.save()
+            
         except AutomobileVO.DoesNotExist:
             return JsonResponse(
                 {"message": "Invalid Automobile Vin"},
                 status=400,
             )
+        sale = Sale.objects.create(**content)
+        
+        return JsonResponse(
+            sale,
+            encoder=SaleListEncoder,
+            safe=False,
+        )
+    
 
 @require_http_methods(["DELETE"])
 def salesperson_delete(request, id):
@@ -172,4 +173,21 @@ def customer_delete(request, id):
                 status=400,
                 )
             return response
-        
+
+@require_http_methods(["DELETE"])
+def sale_delete(request, id):
+    if request.method == "DELETE":
+        try:
+            sale = Sale.objects.get(id=id)
+            sale.delete()
+            return JsonResponse (
+                sale,
+                encoder=SaleListEncoder,
+                safe=False
+            )
+        except Sale.DoesNotExist:
+            response = JsonResponse(
+                {"message": "This Sale Does Not Exist"},
+                status=400,
+                )
+            return response

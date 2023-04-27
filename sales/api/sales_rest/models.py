@@ -8,7 +8,7 @@ class Salesperson(models.Model):
 
     def get_api_url(self):
         return reverse("salesperson_list", kwargs={"id": self.id})
-
+    
 class Customer(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
@@ -20,8 +20,8 @@ class Customer(models.Model):
 
 class AutomobileVO(models.Model):
     vin = models.CharField(max_length=17, unique=True)
-
-
+    sold = models.BooleanField(default=False)
+    
 class Sale(models.Model):
     price = models.IntegerField(null=True)
     customer = models.ForeignKey(
