@@ -81,7 +81,7 @@ def customer_list(request):
         customers = Customer.objects.all()
         return JsonResponse(
             {"customers": customers},
-            encoder=CustomerListEncoder
+            encoder=CustomerListEncoder,
         )
     else:
         content = json.loads(request.body)
@@ -104,7 +104,7 @@ def sale_list(request):
         sales = Sale.objects.all()
         return JsonResponse (
             {"sales": sales},
-            encoder=SaleListEncoder
+            encoder=SaleListEncoder,
         )
     else:
         content = json.loads(request.body)

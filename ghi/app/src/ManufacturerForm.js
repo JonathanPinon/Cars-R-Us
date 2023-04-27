@@ -11,7 +11,6 @@ function ManufacturerForm() {
         event.preventDefault();
         const data = {};
         data.name = manufacturer;
-        console.log(data)
 
         const manufacturerUrl = "http://localhost:8100/api/manufacturers/"
         const fetchConfig = {

@@ -45,7 +45,6 @@ function CustomerForm(){
         const response = await fetch(customerUrl, fetchConfig);
         if (response.ok){
             const data = await response.json();
-            console.log(data);
 
             setAddress('');
             setFirstName('');

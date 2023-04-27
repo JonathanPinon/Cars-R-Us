@@ -60,9 +60,7 @@ const handleSubmit = async (event) => {
     setName('')
     setPictureUrl('')
     setManufacturer('')
-  } else {
-    console.log(response)
-  }
+  } 
 
 }
 
