@@ -34,6 +34,7 @@ function Nav() {
             <li><Link className="dropdown-item" to="sales_record/new">Create Sales Record</Link></li>
 
           </ul>
+          console.log("YO")
         </li>
         <li className="nav-item dropdown">
           <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
