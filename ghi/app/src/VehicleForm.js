@@ -15,13 +15,12 @@ const VehicleForm = (props) => {
     loadManufacturers()
   }, [])
 
-//#region : useStates
+
 const [name, setName] = useState('')
 const [pictureUrl, setPictureUrl] = useState('')
 const [manufacturer, setManufacturer] = useState('')
-//#endregion
 
-//#region : handler functions
+
 const handleName = (event) => {
   const value = event.target.value
   setName(value)
@@ -34,9 +33,7 @@ const handleManufacturer = (event) => {
   const value = event.target.value
   setManufacturer(value)
 }
-//#endregion
 
-//#region : submission handler
 
 const handleSubmit = async (event) => {
   event.preventDefault();
