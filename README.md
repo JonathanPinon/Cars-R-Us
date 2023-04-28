@@ -1,5 +1,7 @@
 # CarCar
 
+
+
 Team:
 
 * Person 1 - Which microservice?
@@ -18,8 +20,7 @@ docker volume create beta-data <br>
 Run the application at: http://localhost:3000/ <br>
 
 ## Design
-Inline-style:
-![text](https://github.com/.png "Project Beta Diagram")
+![alt text](project_beta_diagram.png "Project Beta Diagram")
 
 ## Microservice Ports
 Front-end application: http://localhost:3000/ <br>
@@ -29,8 +30,6 @@ Sales API: http://localhost:8090/ <br>
 
 ## Sales microservice
 
-Explain your models and integration with the inventory
-microservice, here.
 
 ## Service microservice
 
@@ -112,5 +111,3 @@ Retrieves a list of all appointments.
 
 * Method: `GET`
 * Response: A list of all appointments in the system.
-
-
