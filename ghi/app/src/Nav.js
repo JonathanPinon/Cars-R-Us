@@ -28,13 +28,14 @@ function Nav() {
             Sales
           </Link>
           <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><Link className="dropdown-item" to="sales_person">Add Sales Person</Link></li>
-            <li><Link className="dropdown-item" to="customer">Add Customer</Link></li>
-            <li><Link className="dropdown-item" to="sales_record">Sales Records</Link></li>
-            <li><Link className="dropdown-item" to="sales_record/new">Create Sales Record</Link></li>
+            <li><Link className="dropdown-item" to="salespeople">Salespeople List</Link></li>
+            <li><Link className="dropdown-item" to="salespeople/new">Add Salesperson</Link></li>
+            <li><Link className="dropdown-item" to="customers">Customer List</Link></li>
+            <li><Link className="dropdown-item" to="customers/new">Add Customer</Link></li>
+            <li><Link className="dropdown-item" to="sales">Sales List</Link></li>
+            <li><Link className="dropdown-item" to="sales/new">Add Sale</Link></li>
 
           </ul>
-          console.log("YO")
         </li>
         <li className="nav-item dropdown">
           <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
