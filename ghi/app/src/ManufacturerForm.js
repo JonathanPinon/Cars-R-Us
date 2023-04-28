@@ -11,7 +11,6 @@ function ManufacturerForm() {
         event.preventDefault();
         const data = {};
         data.name = manufacturer;
-        console.log(data)
 
         const manufacturerUrl = "http://localhost:8100/api/manufacturers/"
         const fetchConfig = {
@@ -29,11 +28,11 @@ function ManufacturerForm() {
         }
     }
     return (
-        <div className="row">
+    <div className="row">
         <div className="offset-3 col-6">
             <div className="shadow p-4 mt-4">
             <h1>Create a manufacturer</h1>
-                <form onSubmit={handleSubmit} className="row g-3" id="create-hat-form">
+                <form onSubmit={handleSubmit} className="row g-3" id="create-manufacturer-form">
                     <div className="form-floating mb-3">
                         <input onChange={handleManufacturerChange} placeholder="Manufacturer Name..." required type="text" value={manufacturer} name="name" id="name" className="form-control"/>
                         <label htmlFor="name">Manufacturer Name...</label>

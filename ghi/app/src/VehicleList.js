@@ -42,3 +42,4 @@ const VehicleList = (props) => {
 }
 
 export default VehicleList
+

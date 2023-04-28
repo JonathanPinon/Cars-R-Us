@@ -59,7 +59,6 @@ function AutomobileForm(){
         const response = await fetch(autoUrl, fetchConfig)
         if(response.ok){
             const data = await response.json()
-            console.log(data)
             setColor('');
             setYear('');
             setVin('');
@@ -86,7 +85,7 @@ function AutomobileForm(){
                     </div>
                     <div className="col-md-4">
                         <select onChange={handleModelChange} required id="location" value={model} name="location" className="form-select">
-                        <option value=''>Choose Closet</option>
+                        <option value=''>Choose Model</option>
                         {models.map(model => {
                             return (
                                 <option key={model.id} value={model.id}>
