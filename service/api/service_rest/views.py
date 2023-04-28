@@ -112,6 +112,7 @@ def show_appointment(request, id):
             safe=False
         )
 
+
 @require_http_methods(["GET", "POST"])
 def list_technicians(request):
     if request.method == "GET":
@@ -119,4 +120,49 @@ def list_technicians(request):
         return JsonResponse(
             {"technicians": technicians},
             encoder=TechnicianEncoder
+        )
+    else:
+        content = json.loads(request.body)
+        technician = Technician.objects.create(**content)
+        return JsonResponse(
+            technician,
+            encoder=TechnicianEncoder,
+            safe=False,
+        )
+
+
+@require_http_methods(["GET", "PUT", "DELETE"])
+def show_technician(request, id):
+    if request.method == "GET":
+        try:
+            technician = Technician.objects.get(id=id)
+            return JsonResponse(
+                technician,
+                encoder=TechnicianEncoder,
+                safe=False,
+            )
+        except Technician.DoesNotExist:
+            response = JsonResponse(
+                {"message": "Technician does not exist"}
+            )
+            response.status_code = 404
+            return response
+    elif request.method == "DELETE":
+        try:
+            technician = Technician.objects.get(id=id), technician.delete()
+            return JsonResponse(
+                {"message": "Technician has been deleted"}
+            )
+        except Technician.DoesNotExist:
+            response = JsonResponse(
+                {"message": "Technician does not exist"}
+            )
+    else:
+        content = json.loads(request.body)
+        Technician.objects.filter(id=id).update(**content)
+        technician = Technician.objects.get(id=id)
+        return JsonResponse(
+            technician,
+            encoder=TechnicianEncoder,
+            safe=False,
         )
