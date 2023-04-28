@@ -145,9 +145,7 @@ def salesperson_delete(request, id):
             salesperson = Salesperson.objects.get(id=id)
             salesperson.delete()
             return JsonResponse (
-                salesperson,
-                encoder=SalespersonListEncoder,
-                safe=False
+                {"Employee Terminated": True}
             )
         except Salesperson.DoesNotExist:
             response = JsonResponse(
@@ -163,9 +161,7 @@ def customer_delete(request, id):
             customer = Customer.objects.get(id=id)
             customer.delete()
             return JsonResponse (
-                customer,
-                encoder=CustomerListEncoder,
-                safe=False
+                {"Customer Deleted": True}
             )
         except Customer.DoesNotExist:
             response = JsonResponse(
@@ -181,9 +177,7 @@ def sale_delete(request, id):
             sale = Sale.objects.get(id=id)
             sale.delete()
             return JsonResponse (
-                sale,
-                encoder=SaleListEncoder,
-                safe=False
+                {"Sale Removed": True}
             )
         except Sale.DoesNotExist:
             response = JsonResponse(

@@ -53,7 +53,6 @@ function SaleHistory(){
                 <table className="table table-striped">
                 <thead>
                     <tr>
-                        <th>Salesperson ID</th>
                         <th>Salesperson Name</th>
                         <th>Customer</th>
                         <th>VIN</th>
@@ -64,7 +63,6 @@ function SaleHistory(){
                     {historyList.map(sale => {
                         return (
                             <tr key={sale.id}>
-                                <td>{ sale.salesperson.employee_id }</td>
                                 <td>{sale.salesperson.first_name} {sale.salesperson.last_name}</td>
                                 <td>{ sale.customer.first_name } { sale.customer.last_name }</td>
                                 <td>{ sale.automobile.vin }</td>
@@ -80,29 +78,5 @@ function SaleHistory(){
     </div>
     )
 
-
-// {/* <div>
-//     <div id="accordion">
-//     {salespeople.map(salesperson =>  {
-//     return (   
-       
-//             <div className="card">       
-//                 <div className="card-header" id="headingOne">
-//                     <h5 className="mb-0">
-//                         <button className="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-//                         {salesperson.first_name} {salesperson.last_name}
-//                         </button>
-//                     </h5>
-//                     <div id="collapseOne" className="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-//                         <div className="card-body">
-//                             dsfnbjsfvsjfslfjljflfjfjmgffg
-//                         </div>
-//                     </div>
-//                 </div>
-//             </div>       
-        
-//         )})}
-//       </div> 
-// </div> */}
 }
 export default SaleHistory;
