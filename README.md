@@ -47,7 +47,7 @@ The sales drop down menu allows you to:
 Explain your models and integration with the inventory
 microservice, here.
 
-### Sales microservice
+## Sales microservice
 
 The Sales microservice manages creating, deleting, and recieving data instances created from the four models.The Sales microservice conatins 4 models: Customer, Salesperson, Sale, *AutomobileVO*. 
 
@@ -57,7 +57,7 @@ Each model, except for the *AutomobileVO*, has two view functions one that handl
 
 Everything request for the sales microservice will be managed at `http://localhost:8090/api/` + specified url paths.
 
-####Salespeople 
+###Salespeople
 
 The Salesperson Model contains 3 required fields:
 
@@ -139,7 +139,7 @@ Returns:
 ```
 </details>
 
-####Customers
+###Customers
 
 The Customer Model contains 4 required fields:
 
@@ -227,7 +227,7 @@ Returns:
 ```
 </details>
 
-####Sales
+###Sales
 
 The Sale Model contains 4 required fields:
 
