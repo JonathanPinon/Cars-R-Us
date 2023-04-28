@@ -27,8 +27,8 @@ The inventory drop down menu allows you to:
 
 ### Sales
 The sales drop down menu allows you to:
-- View lists of Salespeople, Customers, and Sales/Sale History
-- Create new Manifacturers, Models, and Automobiles
+- View lists of Salespeople, Customers, and Sales/Individual Sale History
+- Create new Salespeople, Customers, and Sales
 
 | Url Paths | Method | Action | Required Field(s) |
 |---|---|---|---|
