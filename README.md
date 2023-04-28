@@ -8,7 +8,7 @@ Team:
     Inventory --> Manufacturer List & Form, Automobile List & Form
 * Person 2 - Which microservice? Diana - Service
 
-##API
+## API
 Website Url: `http://localhost:3000/` + specified url path.
 
 ### Inventory
@@ -57,7 +57,8 @@ Each model, except for the *AutomobileVO*, has two view functions one that handl
 
 Everything request for the sales microservice will be managed at `http://localhost:8090/api/` + specified url paths.
 
-###Salespeople
+#### Salespeople
+
 
 The Salesperson Model contains 3 required fields:
 
@@ -139,7 +140,7 @@ Returns:
 ```
 </details>
 
-###Customers
+#### Customers
 
 The Customer Model contains 4 required fields:
 
@@ -227,7 +228,7 @@ Returns:
 ```
 </details>
 
-###Sales
+#### Sales
 
 The Sale Model contains 4 required fields:
 
