@@ -28,7 +28,6 @@ function Nav() {
             Sales
           </Link>
           <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-<<<<<<< HEAD
             <li><Link className="dropdown-item" to="sales_person">Add Sales Person</Link></li>
             <li><Link className="dropdown-item" to="customer">Add Customer</Link></li>
             <li><Link className="dropdown-item" to="sales_record">Sales Records</Link></li>
@@ -45,15 +44,7 @@ function Nav() {
             <li><Link className="dropdown-item" to="appointment/new">Appointment Form</Link></li>
             <li><Link className="dropdown-item" to="technician">Technician Form</Link></li>
             <li><Link className="dropdown-item" to="service_history">Service History</Link></li>
-=======
-          <li><Link className="dropdown-item" to="salespeople">Salespeople List</Link></li>
-            <li><Link className="dropdown-item" to="salespeople/new">Add Salesperson</Link></li>
-            <li><Link className="dropdown-item" to="customers">Customer List</Link></li>
-            <li><Link className="dropdown-item" to="customers/new">Add Customer</Link></li>
-            <li><Link className="dropdown-item" to="sales">Sales List</Link></li>
-            <li><Link className="dropdown-item" to="sales/new">Add Sale</Link></li>
-            <li><Link className="dropdown-item" to="sales/history">Salesperson History</Link></li>
->>>>>>> main
+
           </ul>
         </li>
       </ul>
